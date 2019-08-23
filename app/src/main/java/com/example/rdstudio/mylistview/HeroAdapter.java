@@ -16,20 +16,12 @@ public class HeroAdapter extends BaseAdapter {
     private Context context;
     private ArrayList<Hero> heroes;
 
-    public ArrayList<Hero> getHeroes() {
-        return heroes;
-    }
-
     public void setHeroes(ArrayList<Hero> heroes) {
         this.heroes = heroes;
     }
 
     public HeroAdapter(Context context) {
         this.context = context;
-    }
-
-    public HeroAdapter(ArrayList<Hero> heroes) {
-        this.heroes = heroes;
         heroes = new ArrayList<>();
     }
 
@@ -54,11 +46,10 @@ public class HeroAdapter extends BaseAdapter {
             view = LayoutInflater.from(context).inflate(R.layout.item_hero, viewGroup, false);
         }
 
-        ViewHolder viewhHolder = new ViewHolder(view);
+        ViewHolder viewHolder = new ViewHolder(view);
         Hero hero = (Hero) getItem(i);
-
-
-        return null;
+        viewHolder.bind(hero);
+        return view;
     }
 
     private class ViewHolder{

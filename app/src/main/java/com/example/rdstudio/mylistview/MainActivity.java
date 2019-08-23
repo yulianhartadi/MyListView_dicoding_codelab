@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private String[] dataName;
     private String[] dataDescription;
     private TypedArray dataPhoto;
-    private HeroAdapter heroAdapter;
+    private HeroAdapter adapter;
     private ArrayList<Hero> heroes;
 
     @Override
@@ -33,9 +33,12 @@ public class MainActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, android.R.id.text1, dataName);
         listView.setAdapter(adapter);*/
 
-        heroAdapter = new HeroAdapter(this);
+        adapter = new HeroAdapter(this);
         ListView listView = findViewById(R.id.lv_list);
-        listView.setAdapter(heroAdapter);
+        listView.setAdapter(adapter);
+
+        prepare();
+        addItem();
 
     }
 
@@ -50,8 +53,15 @@ public class MainActivity extends AppCompatActivity {
             hero.setDescription(dataDescription[i]);
             heroes.add(hero);
         }
-        heroAdapter.setHeroes(heroes);
+        adapter.setHeroes(heroes);
     }
 
-    
+    // initiate array
+    private void prepare(){
+        dataName = getResources().getStringArray(R.array.data_name);
+        dataDescription = getResources().getStringArray(R.array.data_description);
+        dataPhoto = getResources().obtainTypedArray(R.array.data_photo);
+    }
+
+
 }
