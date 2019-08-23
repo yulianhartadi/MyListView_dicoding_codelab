@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     // dummy data list view
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private String[] dataDescription;
     private TypedArray dataPhoto;
     private HeroAdapter heroAdapter;
+    private ArrayList<Hero> heroes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,4 +38,20 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(heroAdapter);
 
     }
+
+    // create one method to insert the data
+    private void addItem() {
+        heroes = new ArrayList<>();
+
+        for (int i = 0; i < dataName.length; i++) {
+            Hero hero = new Hero();
+            hero.setPhoto(dataPhoto.getResourceId(i, -1));
+            hero.setName(dataName[i]);
+            hero.setDescription(dataDescription[i]);
+            heroes.add(hero);
+        }
+        heroAdapter.setHeroes(heroes);
+    }
+
+    
 }

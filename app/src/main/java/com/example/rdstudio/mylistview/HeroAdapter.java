@@ -16,6 +16,14 @@ public class HeroAdapter extends BaseAdapter {
     private Context context;
     private ArrayList<Hero> heroes;
 
+    public ArrayList<Hero> getHeroes() {
+        return heroes;
+    }
+
+    public void setHeroes(ArrayList<Hero> heroes) {
+        this.heroes = heroes;
+    }
+
     public HeroAdapter(Context context) {
         this.context = context;
     }
