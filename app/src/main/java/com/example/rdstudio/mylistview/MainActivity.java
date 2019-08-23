@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // create one method to insert the data
+    // create one method to insert the data to arrayList that can be processed adapter
     private void addItem() {
         heroes = new ArrayList<>();
 
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.setHeroes(heroes);
     }
 
-    // initiate array
+    // initiate arrayList
     private void prepare(){
         dataName = getResources().getStringArray(R.array.data_name);
         dataDescription = getResources().getStringArray(R.array.data_description);
